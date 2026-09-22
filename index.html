@@ -5,13 +5,69 @@
     <title>最不可思议的网站</title>
     <meta name="description" content="La mejor pagina web que verá la escuela de Ing InFormática en la historia de los ingenieros ">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="jugar.css">
   </head>
   <body>
     <audio autoplay loop controls>
-    <source src="./recursos-fantasmoricos/avemaria.mp3" type="audio/mpeg">></iframe>" 
+    <source src="./recursos-fantasmoricos/avemaria.mp3" type="audio/mpeg">></iframe>"
     </audio>
     <img id="pato" src="./recursos-fantasmoricos/pato.gif" alt="Pato que sigue el cursor">
     <script src="best.js"></script>
+
+    <button id="jg-btn-jugar" class="jg-btn-jugar">JUGAR</button>
+
+    <div id="jg-overlay" class="jg-overlay">
+      <div class="jg-modal">
+        <span id="jg-cerrar" class="jg-cerrar">✕</span>
+
+        <div id="jg-fase1" class="jg-fase">
+          <p>Selecciona todas las imágenes con gatos</p>
+          <div class="jg-grid-gatos">
+            <div class="jg-gato" onclick="jgToggleGato(this)">🐱</div>
+            <div class="jg-gato" onclick="jgToggleGato(this)">🐱</div>
+            <div class="jg-gato" onclick="jgToggleGato(this)">🐱</div>
+            <div class="jg-gato" onclick="jgToggleGato(this)">🐱</div>
+            <div class="jg-gato" onclick="jgToggleGato(this)">🐱</div>
+            <div class="jg-gato" onclick="jgToggleGato(this)">🐱</div>
+            <div class="jg-gato" onclick="jgToggleGato(this)">🐱</div>
+            <div class="jg-gato" onclick="jgToggleGato(this)">🐱</div>
+            <div class="jg-gato" onclick="jgToggleGato(this)">🐱</div>
+          </div>
+          <p id="jg-captcha-error" class="jg-error"></p>
+          <button onclick="jgVerificarCaptcha()">Verificar</button>
+        </div>
+
+        <div id="jg-fase2" class="jg-fase">
+          <p>¿Querés continuar?</p>
+          <div class="jg-fase2-area">
+            <button id="jg-btn-si" class="jg-btn-si" onclick="jgClickSi()">Sí</button>
+            <button id="jg-btn-no" class="jg-btn-no" onclick="jgClickNo()">No</button>
+          </div>
+        </div>
+
+        <div id="jg-fase3" class="jg-fase">
+          <div class="jg-blur">
+            <p>Este es un contenido increíble que no podés ver todavía. Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+          <div class="jg-paywall">
+            <p class="jg-paywall-titulo">Continua por solo...</p>
+            <div class="jg-plan" onclick="jgClickPagar()">
+              <span class="jg-plan-badge">Best choice</span>
+              <span class="jg-plan-nombre">Mensual</span>
+              <span class="jg-plan-precio">$18.99</span>
+            </div>
+            <div class="jg-plan" onclick="jgClickPagar()">
+              <span class="jg-plan-nombre">Semanal</span>
+              <span class="jg-plan-precio">$5.99</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="jg-toast" class="jg-toast"></div>
+
+    <script src="jugar.js"></script>
 
   </body>
 </html>
