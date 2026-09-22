@@ -8,11 +8,23 @@ let jgIntentosSiNo = 0;
 const JG_MAX_INTENTOS_SINO = 3;
 
 function jgAbrirModal() {
+  jgReiniciarJuego();
   jgOverlay.classList.add('jg-abierto');
   jgMostrarFase(1);
   const pato = document.getElementById('pato');
   if (pato) pato.style.display = 'none';
   jgMostrarToast('Lograste hacer click en JUGAR 🏆');
+}
+
+function jgReiniciarJuego() {
+  jgIntentos = 0;
+  jgIntentosSiNo = 0;
+
+  document.getElementById('jg-captcha-error').textContent = '';
+  document.querySelectorAll('.jg-gato').forEach(g => g.classList.remove('jg-seleccionado'));
+
+  document.getElementById('jg-btn-si').style.visibility = '';
+  document.getElementById('jg-btn-no').style.visibility = '';
 }
 
 function jgCerrarModal() {
